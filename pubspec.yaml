@@ -1,0 +1,7 @@
+name: plist
+description: A pub package
+dependencies:
+  crypto: any
+  xml: '>=2.0.0 <3.0.0'
+dev_dependencies:
+  unittest: any
