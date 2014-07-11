@@ -1,9 +1,11 @@
 name: plist
 version: 1.0.0
-author: Ole Martin Gjersvik
+author: Ole Martin Gjersvik <olem@olem.org>
 description: A parser for the Property list xml format.
+homepage: https://github.com/gjersvik/plist
+documentation: http://www.dartdocs.org/documentation/plist/1.0.0/index.html
 dependencies:
-  crypto: any
+  crypto: '>=0.9.0 <0.10.0'
   xml: '>=2.0.0 <3.0.0'
 dev_dependencies:
   unittest: any
