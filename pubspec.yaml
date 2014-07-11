@@ -1,5 +1,7 @@
 name: plist
-description: A pub package
+version: 1.0.0
+author: Ole Martin Gjersvik
+description: A parser for the Property list xml format.
 dependencies:
   crypto: any
   xml: '>=2.0.0 <3.0.0'
