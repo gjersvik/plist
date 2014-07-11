@@ -47,4 +47,5 @@ It should return (newline added for readability):
 ```
 
 [ ![Codeship Status for gjersvik/plist](https://www.codeship.io/projects/db84ccb0-eb39-0131-cf93-06c96fb7e135/status)](https://www.codeship.io/projects/26483)
+
 _This project is licensed under the BSD 2-Clause License._
