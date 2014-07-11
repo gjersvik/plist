@@ -5,7 +5,7 @@ import 'package:xml/xml.dart' as libxml;
 import 'package:crypto/crypto.dart' show CryptoUtils;
 
 /**
- * Takes a string of Property list.
+ * Takes a xml string of Property list.
  * Will in most praticaly situation return an Map.
  * Coverts property list types to these dart types:
  * 
@@ -21,7 +21,7 @@ import 'package:crypto/crypto.dart' show CryptoUtils;
  */
 Object parse(String xml){
   var doc = libxml.parse(xml);
-  return _handleElem(doc.rootElement);
+  return _handleElem(doc.rootElement.children.where(_isElemet).first);
 }
 
 _handleElem(libxml.XmlElement elem){
@@ -42,7 +42,7 @@ _handleElem(libxml.XmlElement elem){
       return new Uint8List.fromList(CryptoUtils.base64StringToBytes(elem.text));
     case 'array':
       return elem.children
-          .where((node) => node is libxml.XmlElement)
+          .where(_isElemet)
           .map(_handleElem)
           .toList();
     case 'dict':
@@ -51,7 +51,7 @@ _handleElem(libxml.XmlElement elem){
 }
 
 Map _handleDict(libxml.XmlElement elem){
-  var children = elem.children.where((node) => node is libxml.XmlElement);
+  var children = elem.children.where(_isElemet);
   var key = children
       .where((elem) => elem.name.local == 'key')
       .map((elem) => elem.text);
@@ -60,3 +60,5 @@ Map _handleDict(libxml.XmlElement elem){
       .map(_handleElem);
   return new Map.fromIterables(key, values);
 }
+
+bool _isElemet(libxml.XmlNode node) => node is libxml.XmlElement;
