@@ -1,5 +1,5 @@
 name: plist
-version: 1.0.0
+version: 1.0.1
 author: Ole Martin Gjersvik <olem@olem.org>
 description: A parser for the Property list xml format.
 homepage: https://github.com/gjersvik/plist
