@@ -4,7 +4,22 @@ import 'dart:typed_data';
 import 'package:xml/xml.dart' as libxml;
 import 'package:crypto/crypto.dart' show CryptoUtils;
 
-parse(String xml){
+/**
+ * Takes a string of Property list.
+ * Will in most praticaly situation return an Map.
+ * Coverts property list types to these dart types:
+ * 
+ * * <string> to [String].
+ * * <real> to [double].
+ * * <integer> to [int].
+ * * <true> to true.
+ * * <false> to false.
+ * * <date> to [DateTime].
+ * * <data> to [Uint8List].
+ * * <array> to [List].
+ * * <dict> to [Map].
+ */
+Object parse(String xml){
   var doc = libxml.parse(xml);
   return _handleElem(doc.rootElement);
 }
